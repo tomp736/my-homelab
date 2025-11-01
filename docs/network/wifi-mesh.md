@@ -12,10 +12,11 @@
 
 ### Node 1 (Primary/Main) - Living Room
 
-- **Make/Manufacturer**: (To be documented)
+- **Make/Manufacturer**: TP-Link
 - **Model**: BE85
 - **Hardware Version**: (To be documented)
 - **Serial Number**: (To be documented)
+- **MAC Address**: 20:23:51:62:DC:E0
 - **Firmware Version**: 1.2.1 Build 20250731 Rel.15505
 - **Last Firmware Update**: 2025-07-31
 - **Location/Placement**: Living Room
@@ -24,10 +25,11 @@
 
 ### Node 2 (Satellite) - Office
 
-- **Make/Manufacturer**: (To be documented)
+- **Make/Manufacturer**: TP-Link
 - **Model**: BE85
 - **Hardware Version**: (To be documented)
 - **Serial Number**: (To be documented)
+- **MAC Address**: 20:23:51:62:DF:4A
 - **Firmware Version**: (To be documented - likely same as Node 1)
 - **Last Firmware Update**: (To be documented)
 - **Location/Placement**: Office
@@ -40,8 +42,8 @@
 
 | Node | IP Address | Subnet Mask | Gateway | DHCP/Static | MAC Address |
 |------|------------|-------------|---------|-------------|-------------|
-| Node 1 (Living Room) | 192.168.0.124 | 255.255.255.0 | 192.168.0.1 | DHCP (Smart) | (To be documented) |
-| Node 2 (Office) | 192.168.0.171 | 255.255.255.0 | 192.168.0.1 | DHCP (Smart) | (To be documented) |
+| Node 1 (Living Room) | 192.168.0.124 | 255.255.255.0 | 192.168.0.1 | DHCP (Smart) | 20:23:51:62:DC:E0 |
+| Node 2 (Office) | 192.168.0.171 | 255.255.255.0 | 192.168.0.1 | DHCP (Smart) | 20:23:51:62:DF:4A |
 
 ### Connection to Router
 
@@ -134,11 +136,13 @@ IP: 192.168.0.1
 
 ### Mesh Settings
 
-- **Mesh Network Name**:
-- **Seamless Roaming**: Enabled / Disabled
-- **Band Steering**: Enabled / Disabled
-- **Fast Roaming (802.11r)**: Enabled / Disabled
-- **Load Balancing**: Enabled / Disabled
+- **Mesh Network Name**: D3K0 (main SSID)
+- **Wireless Network Mode**: High Capacity
+- **Fast Roaming (802.11r)**: Disabled
+- **Beamforming**: Enabled
+- **Seamless Roaming**: (To be documented)
+- **Band Steering**: (To be documented)
+- **Load Balancing**: (To be documented)
 
 ## Connected Devices
 
@@ -180,6 +184,14 @@ IP: 192.168.0.1
 - **WiFi 6 (802.11ax)**: Supported
 - **WiFi 5 (802.11ac)**: Supported (backward compatibility)
 - **WiFi 4 (802.11n)**: Supported (backward compatibility)
+
+### Wireless Features
+
+- **Beamforming**: Enabled
+- **Network Mode**: High Capacity
+- **Fast Roaming (802.11r)**: Disabled
+- **MU-MIMO**: (To be documented)
+- **OFDMA**: (To be documented)
 
 ### Quality of Service (QoS)
 
@@ -237,6 +249,7 @@ IP: 192.168.0.1
 ## Notes
 
 ### Configuration Highlights
+- **Manufacturer**: TP-Link BE85 WiFi 7 access points
 - **WiFi 7 Support**: BE85 devices support WiFi 7 (802.11be) with Multi-Link Operation (MLO)
 - **Multiple SSIDs**: Three main networks (D3K0, D3K0_6GHz, D3K0_MLO) plus guest networks
 - **Access Point Mode**: Devices operate as APs, routing handled by D-Link router
@@ -244,6 +257,9 @@ IP: 192.168.0.1
 - **Wireless Backhaul**: Inter-node communication via wireless (no Ethernet backhaul)
 - **Full Band Support**: 2.4 GHz, 5 GHz, and 6 GHz bands all enabled
 - **Guest Network**: Separate guest access on all three bands
+- **Beamforming**: Enabled for improved signal directionality
+- **High Capacity Mode**: Optimized for many simultaneous connections
+- **Fast Roaming**: Disabled (802.11r not in use)
 
 ### Key Features
 - **MLO Network**: Allows compatible WiFi 7 devices to use multiple bands simultaneously for improved throughput and reliability
@@ -256,15 +272,16 @@ IP: 192.168.0.1
 - Additional details to be documented: IP addresses, serial numbers, channels, connected devices
 
 ### Outstanding Items
-- ✅ ~~IP addresses for both nodes~~ (Documented: Living Room 192.168.0.124, Office 192.168.0.171)
+- ✅ ~~IP addresses for both nodes~~ (Living Room 192.168.0.124, Office 192.168.0.171)
 - ✅ ~~Physical placement/locations of nodes~~ (Living Room and Office)
+- ✅ ~~MAC addresses for both nodes~~ (20:23:51:62:DC:E0 and 20:23:51:62:DF:4A)
+- ✅ ~~Manufacturer/brand confirmation~~ (TP-Link BE85)
+- ✅ ~~Wireless features~~ (Beamforming enabled, Fast roaming disabled, High Capacity mode)
 - Serial numbers and hardware versions
-- MAC addresses for both nodes
-- Manufacturer/brand confirmation (likely TP-Link based on BE85 model)
-- Detailed channel assignments for each band
-- Guest network SSIDs and configuration
+- Detailed channel assignments for each band (2.4/5/6 GHz and MLO)
+- Guest network SSIDs and configuration details
 - Connected device counts and distribution per node and per band
-- Specific mesh/roaming settings (802.11r, band steering, etc.)
+- Additional mesh settings (seamless roaming, band steering, load balancing)
 
 ---
 *Last Updated: 2025-11-01*
