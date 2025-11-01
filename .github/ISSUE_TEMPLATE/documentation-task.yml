@@ -1,0 +1,75 @@
+name: Documentation Task
+description: Track a documentation task for the homelab infrastructure
+title: "[DOCS]: "
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to track documentation tasks for any part of the homelab infrastructure.
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component Type
+      description: What type of component or layer does this relate to?
+      options:
+        - ISP / Edge Connection
+        - Network / Router / Firewall
+        - Switching / Wireless
+        - Server / Compute
+        - Storage
+        - Services / Applications
+        - Security
+        - Monitoring
+        - Devices / IoT
+        - Diagrams / Topology
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Task Description
+      description: What needs to be documented or accomplished?
+      placeholder: "Example: Document the pfSense router configuration including VLAN setup and firewall rules"
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-outcome
+    attributes:
+      label: Expected Outcome
+      description: What should be the result when this task is complete?
+      placeholder: |
+        Example:
+        - Markdown file with router configuration details
+        - VLAN table with ID, name, and purpose
+        - Firewall rules documented
+        - Network diagram updated
+    validations:
+      required: true
+
+  - type: textarea
+    id: actions-required
+    attributes:
+      label: Actions Required
+      description: Specific steps or actions needed to complete this task (e.g., commands to run, devices to access, information to gather)
+      placeholder: |
+        Example:
+        - Login to pfSense web interface at 192.168.1.1
+        - Export VLAN configuration
+        - Run 'show running-config' on switch
+        - Obtain device serial number from chassis label
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional Notes
+      description: Any other context, references, or information
+      placeholder: "Links to vendor documentation, related issues, dependencies, etc."
+    validations:
+      required: false
