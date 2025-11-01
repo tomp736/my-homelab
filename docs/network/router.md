@@ -86,31 +86,39 @@ default via 109.206.198.129 dev nas0_0  metric 410
 
 | External Port | Internal IP | Internal Port | Protocol | Service |
 |---------------|-------------|---------------|----------|---------|
-| (To be documented) | | | | |
+| - | - | - | - | No port forwarding configured |
 
-**Note**: Port forwarding rules should be documented from web interface.
+**Status**: No virtual servers or port forwarding rules configured.
 
 ### NAT Rules
 ```
-# NAT rules not accessible via SSH iptables command
-# Configuration likely managed through proprietary web interface
-# To be documented from router web UI
+# Standard NAT enabled for WAN connection
+# No custom NAT rules configured
+# All LAN traffic (192.168.0.0/24) is NAT'd to WAN IP (109.206.198.193)
 ```
 
 ## DHCP Configuration
 
-- **DHCP Server Enabled**: (To be documented - check web interface)
-- **DHCP Range**: (To be documented - check web interface)
-- **Lease Time**: (To be documented - check web interface)
-- **Reserved IPs**: (To be documented - check web interface)
+- **DHCP Server Enabled**: Yes
+- **Mode**: Dynamic IP Addresses (DHCP)
+- **DHCP Range**: 192.168.0.100 - 192.168.0.199 (100 addresses)
+- **Lease Time**: 1440 minutes (24 hours)
+- **DNS Relay**: Enabled (assigns router IP 192.168.0.1 as DNS server to clients)
+- **Hostname**: dlinkrouter.local
+- **DHCP Options**: None configured
 
-**Note**: DHCP configuration files not found via SSH. Configuration likely managed through web interface or proprietary system.
+### DHCP Reservations (Static Assignments)
 
-### DHCP Reservations
+| MAC Address | IP Address | Hostname | Lease Time | Notes |
+|-------------|------------|----------|------------|-------|
+| 48:A9:8A:B6:5D:5C | 192.168.0.2 | mikrotik | Permanent | Static reservation |
 
-| MAC Address | IP Address | Hostname | Description |
-|-------------|------------|----------|-------------|
-| (To be documented) | | | |
+### Address Allocation Summary
+
+- **Router**: 192.168.0.1
+- **Reserved/Static**: 192.168.0.2 - 192.168.0.99 (98 addresses available for static assignment)
+- **DHCP Pool**: 192.168.0.100 - 192.168.0.199 (100 addresses)
+- **Available for manual assignment**: 192.168.0.200 - 192.168.0.254 (55 addresses)
 
 ## DNS Configuration
 
@@ -141,18 +149,20 @@ default via 109.206.198.129 dev nas0_0  metric 410
 ## Advanced Features
 
 ### QoS/Traffic Shaping
-- **Enabled**: (To be documented - check web interface)
-- **Configuration**: (To be documented - check web interface)
+- **Enabled**: No
+- **Configuration**: Not configured
+- **Status**: QoS/Traffic shaping features are disabled
 
 ### Firewall Rules
-- **Default Policy**: (To be documented - check web interface)
-- **Custom Rules**: (To be documented - check web interface)
-- **Note**: iptables commands not accessible via SSH, managed through web UI
+- **Default Policy**: Default router firewall (NAT with basic stateful inspection)
+- **Custom Rules**: None configured
+- **Status**: Using standard router firewall with no custom rules
+- **Note**: Basic firewall protection provided by NAT and connection tracking
 
 ### VPN
-- **VPN Type**: (To be documented - check web interface)
-- **Status**: (To be documented - check web interface)
-- **Configuration**: (To be documented - check web interface)
+- **VPN Type**: Not applicable
+- **Status**: Disabled
+- **Configuration**: VPN server is not configured or enabled
 
 ## Network Topology
 
@@ -189,21 +199,20 @@ ISP (109.206.198.129)
 
 ### Access Methods
 - **SSH**: Available for command-line access and diagnostics
-- **Web Interface**: Primary configuration method (recommended for DHCP, NAT, firewall settings)
+- **Web Interface**: Primary configuration method (hostname: dlinkrouter.local)
+
+### Configuration Summary
+- **Simple setup**: Basic routing with DHCP, no advanced features enabled
+- **Security**: Relies on NAT and default firewall (no custom rules)
+- **Wireless**: Completely disabled (wired-only network)
+- **Services**: No VPN, QoS, or port forwarding configured
+- **DHCP**: Single static reservation for MikroTik device at 192.168.0.2
 
 ### Data Collection
-- Initial documentation gathered via web interface (hardware specs, basic status)
-- Detailed network configuration gathered via SSH (routing, interfaces, DNS)
-- Some features require web interface access for complete documentation
-
-### Outstanding Items
-The following items still need to be documented from the web interface:
-- DHCP server configuration and reservations
-- Port forwarding rules
-- Firewall policies and custom rules
-- QoS/Traffic shaping configuration
-- VPN configuration (if enabled)
-- Complete device mode information
+- Hardware and status information gathered via web interface
+- Network configuration (routing, interfaces, DNS) gathered via SSH
+- DHCP and service configuration verified via web interface
+- Complete documentation gathered on 2025-11-01
 
 ---
 *Last Updated: 2025-11-01*
