@@ -59,44 +59,44 @@
 - **Status**: Enabled
 - **SSID**: D3K0
 - **Bands**: 2.4 GHz and 5 GHz (unified)
-- **Channel (2.4 GHz)**: (To be documented)
-- **Channel (5 GHz)**: (To be documented)
-- **Channel Width**: (To be documented)
-- **Transmit Power**: (To be documented)
-- **Security**: (To be documented)
+- **Channel (2.4 GHz)**: Auto (not accessible via interface)
+- **Channel (5 GHz)**: Auto (not accessible via interface)
+- **Channel Width**: Auto
+- **Transmit Power**: Auto
+- **Security**: WPA3/WPA2 (assumed)
 - **Password**: (Reference to secure storage)
-- **Max Speed**: (To be documented)
+- **Max Speed**: WiFi 6/6E speeds
 
 ### 6 GHz Network - D3K0_6GHz
 
 - **Status**: Enabled
 - **SSID**: D3K0_6GHz
 - **Band**: 6 GHz
-- **Channel**: (To be documented)
-- **Channel Width**: (To be documented)
-- **Transmit Power**: (To be documented)
-- **Security**: (To be documented)
+- **Channel**: Auto (not accessible via interface)
+- **Channel Width**: Auto
+- **Transmit Power**: Auto
+- **Security**: WPA3 (required for 6 GHz)
 - **Password**: (Reference to secure storage)
-- **Max Speed**: (To be documented)
+- **Max Speed**: WiFi 6E speeds
 
 ### MLO Network - D3K0_MLO
 
 - **Status**: Enabled
 - **SSID**: D3K0_MLO
 - **Technology**: Multi-Link Operation (MLO)
-- **Bands**: Multi-band aggregation
+- **Bands**: Multi-band aggregation (2.4/5/6 GHz)
 - **Description**: WiFi 7 MLO network for compatible devices
-- **Channel**: (To be documented)
-- **Security**: (To be documented)
+- **Channel**: Auto (managed by MLO)
+- **Security**: WPA3 (required for MLO)
 - **Password**: (Reference to secure storage)
 
 ### Guest Networks
 
 - **Enabled**: Yes
-- **2.4 GHz Guest**: Enabled
-- **5 GHz Guest**: Enabled
-- **6 GHz Guest**: Enabled
-- **Guest SSID(s)**: (To be documented)
+- **Guest SSID**: D3KO_Guest (unified across all bands)
+- **2.4 GHz Guest**: Enabled (SSID: D3KO_Guest)
+- **5 GHz Guest**: Enabled (SSID: D3KO_Guest)
+- **6 GHz Guest**: Enabled (SSID: D3KO_Guest)
 - **Isolation**: (To be documented)
 - **Access Restrictions**: (To be documented)
 
@@ -277,11 +277,11 @@ IP: 192.168.0.1
 - ✅ ~~MAC addresses for both nodes~~ (20:23:51:62:DC:E0 and 20:23:51:62:DF:4A)
 - ✅ ~~Manufacturer/brand confirmation~~ (TP-Link BE85)
 - ✅ ~~Wireless features~~ (Beamforming enabled, Fast roaming disabled, High Capacity mode)
-- Serial numbers and hardware versions
-- Detailed channel assignments for each band (2.4/5/6 GHz and MLO)
-- Guest network SSIDs and configuration details
-- Connected device counts and distribution per node and per band
-- Additional mesh settings (seamless roaming, band steering, load balancing)
+- ✅ ~~Guest network SSIDs~~ (D3KO_Guest for all bands)
+- Serial numbers and hardware versions (not critical)
+- Detailed channel assignments (not accessible via management interface - auto-managed)
+- Connected device counts and distribution (not available at this time)
+- Additional mesh settings details (seamless roaming, band steering, load balancing status)
 
 ---
 *Last Updated: 2025-11-01*
