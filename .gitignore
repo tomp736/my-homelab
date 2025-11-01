@@ -12,6 +12,10 @@ secrets.yaml
 .env.local
 *.credentials
 
+# Router/Switch Exports (may contain sensitive config)
+*-export.rsc
+mikrotik-export.rsc
+
 # Private Configuration
 **/private/
 **/secrets/
