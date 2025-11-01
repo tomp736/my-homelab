@@ -8,6 +8,19 @@
 - **Connection**: Connected to main network via D-Link router (192.168.0.1)
 - **Function**: Network segmentation, inter-VLAN routing, firewall, DHCP, DNS, VPN
 
+## Infrastructure as Code Management
+
+- **Management Method**: Terraform (Infrastructure as Code)
+- **Repository**: [bor.infra.network](https://github.com/labrats-work/bor.infra.network)
+- **Configuration**: Declarative configuration managed in version control
+- **Deployment**: Automated via Terraform
+- **Benefits**:
+  - Version-controlled network configuration
+  - Reproducible infrastructure
+  - Automated deployment and updates
+  - Configuration drift detection
+  - Documented infrastructure changes via Git history
+
 ## Hardware Specifications
 
 - **Make/Manufacturer**: MikroTik
