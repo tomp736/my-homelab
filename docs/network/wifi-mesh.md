@@ -10,7 +10,7 @@
 
 ## Hardware Specifications
 
-### Node 1 (Primary/Main)
+### Node 1 (Primary/Main) - Living Room
 
 - **Make/Manufacturer**: (To be documented)
 - **Model**: BE85
@@ -18,9 +18,11 @@
 - **Serial Number**: (To be documented)
 - **Firmware Version**: 1.2.1 Build 20250731 Rel.15505
 - **Last Firmware Update**: 2025-07-31
-- **Location/Placement**: (To be documented)
+- **Location/Placement**: Living Room
+- **Role**: Main node, connected to edge router (D-Link DIR-X1530)
+- **IP Address**: 192.168.0.124
 
-### Node 2 (Satellite)
+### Node 2 (Satellite) - Office
 
 - **Make/Manufacturer**: (To be documented)
 - **Model**: BE85
@@ -28,7 +30,9 @@
 - **Serial Number**: (To be documented)
 - **Firmware Version**: (To be documented - likely same as Node 1)
 - **Last Firmware Update**: (To be documented)
-- **Location/Placement**: (To be documented)
+- **Location/Placement**: Office
+- **Role**: Satellite node
+- **IP Address**: 192.168.0.171
 
 ## Network Configuration
 
@@ -36,8 +40,8 @@
 
 | Node | IP Address | Subnet Mask | Gateway | DHCP/Static | MAC Address |
 |------|------------|-------------|---------|-------------|-------------|
-| Node 1 (Primary) | | | | | |
-| Node 2 (Satellite) | | | | | |
+| Node 1 (Living Room) | 192.168.0.124 | 255.255.255.0 | 192.168.0.1 | DHCP (Smart) | (To be documented) |
+| Node 2 (Office) | 192.168.0.171 | 255.255.255.0 | 192.168.0.1 | DHCP (Smart) | (To be documented) |
 
 ### Connection to Router
 
@@ -99,17 +103,22 @@
 ### Mesh Topology
 
 ```
-[Diagram showing mesh node placement and connections]
-
-Router (192.168.0.1)
+D-Link Router - DIR-X1530
+IP: 192.168.0.1
          |
-         | (wired/wireless)
+         | Wireless Backhaul
          |
-    [Node 1 - Primary]
+    [Living Room Node]
+    BE85 - Primary/Main
+    IP: 192.168.0.124
+    SSIDs: D3K0, D3K0_6GHz, D3K0_MLO
          |
-         | Mesh Backhaul
+         | Wireless Mesh Backhaul
          |
-    [Node 2 - Satellite]
+    [Office Node]
+    BE85 - Satellite
+    IP: 192.168.0.171
+    SSIDs: D3K0, D3K0_6GHz, D3K0_MLO
 ```
 
 ### Backhaul Configuration
@@ -119,7 +128,9 @@ Router (192.168.0.1)
 - **Backhaul Channel**: (To be documented)
 - **Backhaul Speed**: (To be documented)
 - **Dedicated Backhaul**: (To be documented)
-- **Connection**: Node 1 → Router (wireless), Node 2 → Node 1 or Router (wireless)
+- **Connection Path**:
+  - Living Room Node (192.168.0.124) → D-Link Router (192.168.0.1) via wireless
+  - Office Node (192.168.0.171) → Living Room Node (192.168.0.124) via wireless mesh backhaul
 
 ### Mesh Settings
 
@@ -140,19 +151,19 @@ Router (192.168.0.1)
 
 ### Per-Node Distribution
 
-| Node | Connected Devices | 2.4 GHz | 5 GHz | 6 GHz |
-|------|-------------------|---------|-------|-------|
-| Node 1 | | | | |
-| Node 2 | | | | |
+| Node | Location | Connected Devices | 2.4 GHz | 5 GHz | 6 GHz |
+|------|----------|-------------------|---------|-------|-------|
+| Node 1 (192.168.0.124) | Living Room | (To be documented) | | | |
+| Node 2 (192.168.0.171) | Office | (To be documented) | | | |
 
 ## Coverage & Performance
 
 ### Coverage Areas
 
-- **Node 1 Coverage**:
-- **Node 2 Coverage**:
-- **Total Coverage Area**:
-- **Overlap Zones**:
+- **Node 1 (Living Room) Coverage**: Primary coverage for living room and adjacent areas
+- **Node 2 (Office) Coverage**: Primary coverage for office and adjacent areas
+- **Total Coverage Area**: (To be documented)
+- **Overlap Zones**: (To be documented - likely between living room and office)
 
 ### Performance Metrics
 
@@ -245,14 +256,15 @@ Router (192.168.0.1)
 - Additional details to be documented: IP addresses, serial numbers, channels, connected devices
 
 ### Outstanding Items
-- IP addresses for both nodes
+- ✅ ~~IP addresses for both nodes~~ (Documented: Living Room 192.168.0.124, Office 192.168.0.171)
+- ✅ ~~Physical placement/locations of nodes~~ (Living Room and Office)
 - Serial numbers and hardware versions
+- MAC addresses for both nodes
 - Manufacturer/brand confirmation (likely TP-Link based on BE85 model)
 - Detailed channel assignments for each band
 - Guest network SSIDs and configuration
-- Connected device counts and distribution
-- Physical placement/locations of nodes
-- Specific mesh/roaming settings enabled
+- Connected device counts and distribution per node and per band
+- Specific mesh/roaming settings (802.11r, band steering, etc.)
 
 ---
 *Last Updated: 2025-11-01*
