@@ -1,0 +1,50 @@
+# Sensitive Information
+*.key
+*.pem
+*.crt
+*.p12
+*.pfx
+credentials.yml
+credentials.yaml
+secrets.yml
+secrets.yaml
+.env
+.env.local
+*.credentials
+
+# Private Configuration
+**/private/
+**/secrets/
+*-private.*
+*-secret.*
+
+# API Keys and Tokens
+api-keys.txt
+tokens.txt
+*.token
+
+# SSH Keys
+id_rsa
+id_ed25519
+*.pub
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
