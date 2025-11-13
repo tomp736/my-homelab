@@ -23,8 +23,9 @@ graph TB
     WiFiLR -.Wireless Mesh.-> WiFiOffice
 
     MikroTik --> |sfp-sfpplus1<br/>10G| KVM[KVM Server<br/>kvm002]
-    MikroTik --> |sfp-sfpplus2| PC[PC Workstation<br/>pc1008<br/>VLAN 40]
     MikroTik --> |sfp-sfpplus14-16<br/>1G| MgmtPorts[Management Ports<br/>VLAN 10]
+
+    WiFiOffice -.Wireless.-> Desk[Desktop Workstation<br/>desk001<br/>192.168.0.163]
 
     style Internet fill:#e1f5ff
     style ISP fill:#fff4e1
@@ -187,6 +188,7 @@ graph TB
 - **192.168.0.2** - MikroTik CRS317 (Core Switch) - DHCP reservation
 - **192.168.0.100-199** - DHCP pool
 - **192.168.0.124** - TP-Link BE85 Living Room
+- **192.168.0.163** - desk001 (Desktop Workstation)
 - **192.168.0.171** - TP-Link BE85 Office
 
 ### MikroTik Internal Networks
@@ -240,9 +242,11 @@ graph TB
 ### MikroTik CRS317 Port Assignments
 - **ether1**: Uplink to D-Link router (192.168.0.2/24)
 - **sfp-sfpplus1**: KVM server (10G, PVID 10, tagged all VLANs)
-- **sfp-sfpplus2**: PC workstation pc1008 (PVID 40, tagged all VLANs)
 - **sfp-sfpplus14-16**: Management ports (1G, PVID 10)
-- **sfp-sfpplus3-13**: Available
+- **sfp-sfpplus2-13**: Available
+
+### WiFi Connected Devices
+- **desk001**: Desktop workstation (WiFi via BE85 Office, 192.168.0.163)
 
 ## VPN Access
 
@@ -300,7 +304,7 @@ Manual changes to the router are discouraged as they will be overwritten on next
 - Management access restricted to trusted networks
 
 ---
-*Last Updated: 2025-11-01*
+*Last Updated: 2025-11-13*
 *Network documentation generated from homelab configuration*
 
 **Note**: The MikroTik CRS317 core switch configuration is managed via Terraform in the [bor.infra.network](https://github.com/labrats-work/bor.infra.network) repository. This ensures all network configuration is version-controlled and reproducible.
